@@ -28,16 +28,12 @@ type CommitNameType = AppStateType & ConsoleStateType & UserStateType;
  *  想要单独修改 firstName,直接使用 setStoreState<AppStateType>('app','name',{firstName:'modifiedName',lastName:'Ma'})
  */
 
-export function setStoreState<T>(
-  module: ModuleNameType,
-  key: keyof T,
-  value: any
-) {
-  store.commit({
-    type: module + '/__set',
-    key: key,
-    val: value
-  });
+export function setStoreState<T>(module: ModuleNameType, key: keyof T, value: any) {
+    store.commit({
+        type: module + '/__set',
+        key: key,
+        val: value
+    });
 }
 
 /**
@@ -45,12 +41,8 @@ export function setStoreState<T>(
  * @type {T} T  你要派发actions的模块的类型
  * @example 使用方法如下  const result = await dispatchActions<UserActionsType>('console','refreshToken',1)
  */
-export function dispatchAction<T>(
-  module: ModuleNameType,
-  key: keyof T,
-  value?: any
-) {
-  store.dispatch(`${module}/${key}`, value);
+export function dispatchAction<T>(module: ModuleNameType, key: keyof T, value?: any) {
+    store.dispatch(`${module}/${key}`, value);
 }
 
 /**
@@ -59,5 +51,5 @@ export function dispatchAction<T>(
  * @example 使用方法如下  const result =  getStoreGetter<ConsoleGetterType>('console','list')
  */
 export function getStoreGetter<T>(module: ModuleNameType, key: keyof T) {
-  return store.getters[`${module}/${key}`];
+    return store.getters[`${module}/${key}`];
 }

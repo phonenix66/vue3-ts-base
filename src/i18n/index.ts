@@ -15,8 +15,8 @@ import { setStoreState } from '../store/utils';
 const __LOCALE__ = store.state.app.language;
 
 if (!__LOCALE__) {
-  //__LOCALE__ = window.navigator.language.split('-').join('')
-  setStoreState('app', 'language', 'zhCN');
+    // __LOCALE__ = window.navigator.language.split('-').join('')
+    setStoreState('app', 'language', 'zhCN');
 }
 
 /** 定义语言模版 */
@@ -27,41 +27,37 @@ export const Locales: any = {};
  */
 
 export const TranslateTable: { [key: string]: string } = {
-  en: 'en_US',
-  zhCN: 'zh_CN'
+    en: 'en_US',
+    zhCN: 'zh_CN'
 };
 
 export const LanguageNameList: { [key: string]: string } = {
-  en: 'English',
-  zhCN: '简体(中文)'
+    en: 'English',
+    zhCN: '简体(中文)'
 };
 
 export const i18nInstance = useI18n({
-  locale: 'zhCN',
-  messages: {
-    zhCN,
-    en
-  }
+    locale: 'zhCN',
+    messages: {
+        zhCN,
+        en
+    }
 });
 
 /**
  * @description 自动加载 antd-vue 需要的语言模版
  */
 function loadAtdLocales() {
-  const files = require.context(
-    '../../node_modules/ant-design-vue/es/locale-provider',
-    true,
-    /\.js$/
-  );
-  files.keys().forEach(key => {
-    const fileName = key.slice(2, key.lastIndexOf('.'));
-    if (includes(TranslateTable, fileName)) {
-      const localeKey = findKeyByValue(TranslateTable, fileName);
-      if (localeKey) {
-        Locales[localeKey] = files(key).default;
-      }
-    }
-  });
+    const files = require.context('../../node_modules/ant-design-vue/es/locale-provider', true, /\.js$/);
+    files.keys().forEach(key => {
+        const fileName = key.slice(2, key.lastIndexOf('.'));
+        if (includes(TranslateTable, fileName)) {
+            const localeKey = findKeyByValue(TranslateTable, fileName);
+            if (localeKey) {
+                Locales[localeKey] = files(key).default;
+            }
+        }
+    });
 }
 
 /**
@@ -71,12 +67,12 @@ function loadAtdLocales() {
  */
 
 function _set(lang: keyof typeof TranslateTable): keyof typeof TranslateTable {
-  i18nInstance.locale.value = lang as any;
-  // 设置当前语言的时间
-  moment.locale(TranslateTable[lang]);
-  // Axios.defaults.headers.common['Accept-Language'] = lang
-  setStoreState('app', 'language', lang);
-  return lang;
+    i18nInstance.locale.value = lang as any;
+    // 设置当前语言的时间
+    moment.locale(TranslateTable[lang]);
+    // Axios.defaults.headers.common['Accept-Language'] = lang
+    setStoreState('app', 'language', lang);
+    return lang;
 }
 
 /**
@@ -84,13 +80,11 @@ function _set(lang: keyof typeof TranslateTable): keyof typeof TranslateTable {
  * @param {string} lang - 将要更换的语言
  * @return {string} lang - 返回将要更改的语言明后才能
  */
-export function setLang(
-  lang: string
-): Promise<keyof typeof TranslateTable | 'same'> {
-  if (lang === i18nInstance.locale.value) {
-    return Promise.resolve('same');
-  }
-  return Promise.resolve(_set(lang));
+export function setLang(lang: string): Promise<keyof typeof TranslateTable | 'same'> {
+    if (lang === i18nInstance.locale.value) {
+        return Promise.resolve('same');
+    }
+    return Promise.resolve(_set(lang));
 }
 
 /* 加载 antd 模版 */

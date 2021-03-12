@@ -6,12 +6,12 @@ import { HttpResponse } from '@/@types/index';
  */
 
 class CommonService {
-  // 添加团队
-  static getRoleInfoList(): Promise<HttpResponse> {
-    return Axios.get('/bus/common/getRoleInfo', {
-      responseType: 'json'
-    });
-  }
+    // 添加团队
+    static getRoleInfoList(): Promise<HttpResponse> {
+        return Axios.get('/bus/common/getRoleInfo', {
+            responseType: 'json'
+        });
+    }
 }
 
 export default CommonService;

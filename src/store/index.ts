@@ -8,23 +8,14 @@ import { InjectionKey } from 'vue';
 export const key: InjectionKey<Store<StateType>> = Symbol();
 
 const store: Store<StateType> = createStore({
-  strict: true,
-  mutations,
-  actions: {},
-  modules: { ...modules },
-  plugins:
-    process.env.NODE_ENV !== 'production'
-      ? [
-          createLogger(),
-          createPersistedState({
-            paths: ['app', 'console', 'user']
-          })
-        ]
-      : [
-          createPersistedState({
-            paths: ['app', 'console', 'user']
-          })
-        ]
+    strict: true,
+    mutations,
+    actions: {},
+    modules: { ...modules },
+    plugins:
+        process.env.NODE_ENV !== 'production'
+            ? [createLogger(), createPersistedState({ paths: ['app', 'console', 'user'] })]
+            : [createPersistedState({ paths: ['app', 'console', 'user'] })]
 });
 
 export default store;

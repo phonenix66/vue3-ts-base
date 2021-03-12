@@ -1,20 +1,20 @@
 import {
-  Button,
-  Card,
-  Row,
-  Col,
-  Tag,
-  Form,
-  Input,
-  ConfigProvider,
-  Select,
-  DatePicker,
-  Dropdown,
-  Menu,
-  Divider,
-  Badge,
-  BackTop,
-  Carousel
+    Button,
+    Card,
+    Row,
+    Col,
+    Tag,
+    Form,
+    Input,
+    ConfigProvider,
+    Select,
+    DatePicker,
+    Dropdown,
+    Menu,
+    Divider,
+    Badge,
+    BackTop,
+    Carousel
 } from 'ant-design-vue';
 
 /**
@@ -24,20 +24,20 @@ import {
  * @returns void
  */
 export default function loadComponent(app: any) {
-  app.use(Button);
-  app.use(Card);
-  app.use(Row);
-  app.use(Col);
-  app.use(Tag);
-  app.use(Form);
-  app.use(Input);
-  app.use(Dropdown);
-  app.use(Menu);
-  app.use(Divider);
-  app.use(ConfigProvider);
-  app.use(Select);
-  app.use(DatePicker);
-  app.use(BackTop);
-  app.use(Badge);
-  app.use(Carousel);
+    app.use(Button);
+    app.use(Card);
+    app.use(Row);
+    app.use(Col);
+    app.use(Tag);
+    app.use(Form);
+    app.use(Input);
+    app.use(Dropdown);
+    app.use(Menu);
+    app.use(Divider);
+    app.use(ConfigProvider);
+    app.use(Select);
+    app.use(DatePicker);
+    app.use(BackTop);
+    app.use(Badge);
+    app.use(Carousel);
 }
