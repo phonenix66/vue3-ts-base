@@ -21,13 +21,12 @@ const state = {
     currentTeamRoleId: 0, // 当前所选择的团队用户所具有的权限
     currentProjectRoleId: 0 // 当前所选择的项目用户所具有的权限
 };
-type UserStateType = typeof state;
+export type UserStateType = typeof state;
 
 const user: Module<UserStateType, StateType> = {
     namespaced: true,
     ...state
 };
 
-// eslint-disable-next-line no-undef
-export { UserStateType, state };
+export { state };
 export default user;

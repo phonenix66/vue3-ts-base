@@ -101,5 +101,5 @@ module.exports = {
     IS_DEV ? DEVELOPMENT(config) : PRODUCTION(config);
   },
   productionSourceMap: false,
-  lintOnSave: true
+  lintOnSave: false
 };

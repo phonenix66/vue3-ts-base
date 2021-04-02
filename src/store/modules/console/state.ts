@@ -21,13 +21,11 @@ const state = {
     projectList: [] // 项目列表
 };
 
-type ConsoleStateType = typeof state;
+export type ConsoleStateType = typeof state;
 
 const console: Module<ConsoleStateType, StateType> = {
     namespaced: true,
     ...state
 };
-
-// eslint-disable-next-line no-undef
-export { ConsoleStateType, state };
+export { state };
 export default console;

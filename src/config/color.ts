@@ -17,7 +17,6 @@ const Color = {
     }
 };
 
-type ColorType = typeof Color;
+export type ColorType = typeof Color;
 
-// eslint-disable-next-line no-undef
-export { Color, ColorType };
+export { Color };

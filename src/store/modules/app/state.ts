@@ -9,10 +9,8 @@ const state = {
     loadingText: 'Loading...',
     currentActiveNav: '解决方案'
 };
-type AppStateType = typeof state;
+export type AppStateType = typeof state;
 
 const app: Module<AppStateType, StateType> = { namespaced: true, ...state };
-
-// eslint-disable-next-line no-undef
-export { AppStateType, state };
+export { state };
 export default app;
